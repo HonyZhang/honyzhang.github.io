@@ -1,36 +1,57 @@
-name: Deploy to GitHub Pages
+name: 部署静态内容到 GitHub Pages
 
 on:
+  # 当推送到 main 分支时运行工作流
   push:
-    branches:
-      - main  # 每次推送到 main 分支时触发部署
+    branches: ["main"]
+
+  # 允许你手动从 Actions 选项卡运行此工作流
+  workflow_dispatch:
+
+# 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 只允许一个并发部署运行，不取消正在进行的部署
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build:
+  # 部署任务
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: 检出仓库代码
-      - name: Checkout the repository
-        uses: actions/checkout@v2
+      # 第一步：检出仓库代码
+      - name: 检出仓库代码
+        uses: actions/checkout@v4
 
-      # Step 2: 设置 Node.js 18 版本
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      # 第二步：设置 Node.js 环境（使用 Node.js 18）
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      # Step 3: 安装依赖
-      - name: Install dependencies
+      # 第三步：使用 pnpm 安装依赖
+      - name: 安装依赖
         run: pnpm install
 
-      # Step 4: 构建项目
-      - name: Build the project
+      # 第四步：构建项目
+      - name: 构建项目
         run: pnpm run build
 
-      # Step 5: 部署到 GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      # 第五步：上传构建成果（dist 文件夹）
+      - name: 上传构建成果
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub 的内置 token
-          publish_dir: ./dist  # 将构建后的静态文件夹 dist 部署到 GitHub Pages
+          path: './dist'  # 只上传构建后的 dist 文件夹
+
+      # 第六步：部署到 GitHub Pages
+      - name: 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

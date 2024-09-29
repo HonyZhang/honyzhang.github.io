@@ -1,13 +1,14 @@
 ---
 layout: home
 ---
+
 <div class="hero">
-  <h1 class="hero__title">你好，我是张翔 👋</h1>
+  <h1 class="hero__title">Hello, I'm Hony Zhang 👋</h1>
   <p class="hero__description">
-    我是一名前端开发工程师，专注于构建高效、可扩展的 Web 应用程序。
+    I'm a front-end developer specializing in building efficient, scalable web applications.
   </p>
 
-<h2 class="hero__subtitle">🌟 核心技能</h2>
+<h2 class="hero__subtitle">🌟 Core Skills</h2>
   <ul class="hero__skills">
     <li class="hero__skills__item">Vue.js, Vue 3, VuePress</li>
     <li class="hero__skills__item">TypeScript</li>

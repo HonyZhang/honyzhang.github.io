@@ -1,0 +1,39 @@
+// 使用 BEM 风格为多语言页面提供一致的样式
+.hero {
+  padding: 2rem;
+  background-color: #f9f9f9;
+
+  &__title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    color: #34495e;
+  }
+
+  &__skills {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    &__item {
+      padding: 0.5rem 1rem;
+      background-color: #3498db;
+      color: white;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+  }
+}

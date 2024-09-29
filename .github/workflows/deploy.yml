@@ -31,27 +31,32 @@ jobs:
       - name: 检出仓库代码
         uses: actions/checkout@v4
 
-      # 第二步：设置 Node.js 环境（使用 Node.js 18）
+      # 第二步：安装 pnpm
+      - name: 安装 pnpm
+        run: |
+          npm install -g pnpm
+
+      # 第三步：设置 Node.js 环境（使用 Node.js 18）
       - name: 设置 Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      # 第三步：使用 pnpm 安装依赖
+      # 第四步：使用 pnpm 安装依赖
       - name: 安装依赖
         run: pnpm install
 
-      # 第四步：构建项目
+      # 第五步：构建项目
       - name: 构建项目
         run: pnpm run build
 
-      # 第五步：上传构建成果（dist 文件夹）
+      # 第六步：上传构建成果（dist 文件夹）
       - name: 上传构建成果
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'  # 只上传构建后的 dist 文件夹
 
-      # 第六步：部署到 GitHub Pages
+      # 第七步：部署到 GitHub Pages
       - name: 部署到 GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

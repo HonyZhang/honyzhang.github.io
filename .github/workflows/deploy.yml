@@ -1,0 +1,36 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 每次推送到 main 分支时触发部署
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: 检出仓库代码
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      # Step 2: 设置 Node.js 18 版本
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      # Step 3: 安装依赖
+      - name: Install dependencies
+        run: pnpm install
+
+      # Step 4: 构建项目
+      - name: Build the project
+        run: pnpm run build
+
+      # Step 5: 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub 的内置 token
+          publish_dir: ./dist  # 将构建后的静态文件夹 dist 部署到 GitHub Pages

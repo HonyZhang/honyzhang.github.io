@@ -10,9 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted} from 'vue'
+import {onMounted, ref} from 'vue'
 import Avatar from '@/components/Avatar.vue'
-import {getSingleWallpaper} from '@/utils/bingWallpaper.ts'
+import {getWallpaperFromCache} from '@/utils/bingWallpaper.ts'
 
 interface HomeProps {
     title: string
@@ -25,7 +25,7 @@ const backgroundImage = ref('')
 
 // 获取 Bing 壁纸并设置为背景图
 onMounted(async () => {
-    const imageUrl = await getSingleWallpaper()
+    const imageUrl = await getWallpaperFromCache()
     if (imageUrl) {
         backgroundImage.value = imageUrl
     }

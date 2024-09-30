@@ -8,8 +8,7 @@
 interface AvatarProps {
     src: string;  // 接收头像图片的路径
 }
-
-const props = defineProps<AvatarProps>();
+defineProps<AvatarProps>()
 </script>
 
 <style scoped>

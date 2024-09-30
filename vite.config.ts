@@ -14,10 +14,10 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '/api': {
+            '/bingApi': {
                 target: 'https://www.bing.com',
                 changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/api/, '')
+                rewrite: (path) => path.replace(/^\/bingApi/, '')
             }
         }
     }

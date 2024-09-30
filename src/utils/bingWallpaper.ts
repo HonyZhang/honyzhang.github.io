@@ -1,18 +1,15 @@
-export const fetchBingWallpaper = async (): Promise<string | null> => {
-    const randomIdx = Math.floor(Math.random() * 8)
+import {getWallpaperData} from '@/api/wallpaperApi.ts'
 
-    // 通过环境变量获取 API 地址
-    const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/HPImageArchive.aspx?format=js&idx=${randomIdx}&n=1&mkt=zh-CN`
+export const getSingleWallpaper = async (): Promise<string | null> => {
 
     try {
-        const response = await fetch(apiUrl)
+        const response = await getWallpaperData()
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`)
+        if (!response) {
+            console.error('获取 Bing 壁纸数据失败')
+            return null
         }
-
-        const data = await response.json()
-        return `https://www.bing.com${data.images[0].url}`
+        return `${import.meta.env.VITE_WALLPAPER_API_URL}${response.images[0]?.url}` || null
     } catch (error) {
         console.error('获取 Bing 壁纸失败:', error)
         return null

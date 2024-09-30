@@ -1,7 +1,7 @@
 <template>
     <div class="home" :style="{ backgroundImage: `url(${backgroundImage})` }">
         <div class="home__content">
-            <Avatar src="path/to/your/avatar.jpg" />
+            <Avatar src="path/to/your/avatar.jpg"/>
             <h1 class="home__title">{{ title }}</h1>
             <p class="home__description">{{ description }}</p>
             <button class="home__button" @click="learnMore">{{ buttonText }}</button>
@@ -10,21 +10,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { fetchBingWallpaper } from '@/utils/bingWallpaper'
+import {ref, onMounted} from 'vue'
 import Avatar from '@/components/Avatar.vue'
+import {getSingleWallpaper} from '@/utils/bingWallpaper.ts'
 
 interface HomeProps {
     title: string
     description: string
     buttonText: string
 }
+
 defineProps<HomeProps>()
 const backgroundImage = ref('')
 
 // 获取 Bing 壁纸并设置为背景图
 onMounted(async () => {
-    const imageUrl = await fetchBingWallpaper()
+    const imageUrl = await getSingleWallpaper()
     if (imageUrl) {
         backgroundImage.value = imageUrl
     }

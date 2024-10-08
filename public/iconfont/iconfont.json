@@ -6,6 +6,69 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "18986691",
+      "name": "GitHub",
+      "font_class": "GitHub",
+      "unicode": "e8c6",
+      "unicode_decimal": 59590
+    },
+    {
+      "icon_id": "15838472",
+      "name": "email",
+      "font_class": "email",
+      "unicode": "e66f",
+      "unicode_decimal": 58991
+    },
+    {
+      "icon_id": "25153813",
+      "name": "weixin",
+      "font_class": "weixin",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "2733966",
+      "name": "描述",
+      "font_class": "miaoshu",
+      "unicode": "e6ed",
+      "unicode_decimal": 59117
+    },
+    {
+      "icon_id": "7516913",
+      "name": "职业",
+      "font_class": "zhiye1",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "6707621",
+      "name": "性别男",
+      "font_class": "xingbienan1",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "4933214",
+      "name": "职业",
+      "font_class": "zhiye",
+      "unicode": "e6ef",
+      "unicode_decimal": 59119
+    },
+    {
+      "icon_id": "3483790",
+      "name": "年龄",
+      "font_class": "nianling",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "38644708",
+      "name": "年龄",
+      "font_class": "a-44tubiao-102",
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    },
+    {
       "icon_id": "18712528",
       "name": "性别男",
       "font_class": "xingbienan",

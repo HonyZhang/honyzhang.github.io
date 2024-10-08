@@ -42,12 +42,14 @@
 
         <div class="right-container__projects-container">
             <div class="right-container__projects_title">个人项目</div>
-            <div class="right-container__projects">
-                <Card v-for="project in projects" :key="project.name" class="right-container__project-item">
-                    <div class="right-container__project-item-title">{{ project.name }}</div>
-                    <div class="right-container__project-item-info">{{ project.desc }}</div>
-                </Card>
-            </div>
+            <el-scrollbar>
+                <div class="right-container__projects">
+                    <Card v-for="project in projects" :key="project.name" class="right-container__project-item">
+                        <div class="right-container__project-item-title">{{ project.name }}</div>
+                        <div class="right-container__project-item-info">{{ project.desc }}</div>
+                    </Card>
+                </div>
+            </el-scrollbar>
         </div>
     </div>
 </template>
@@ -188,6 +190,10 @@ const showWechat = ref(false)
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
+
+    :deep(.el-scrollbar__thumb){
+      background: #000;
+    }
   }
 
   &__projects_title {
@@ -198,8 +204,6 @@ const showWechat = ref(false)
 
   &__projects {
     display: flex;
-    max-width: 100%;
-    overflow-x: auto;
   }
 
   &__project-item {

@@ -1,0 +1,16 @@
+{
+  "id": "4703414",
+  "name": "个人网站图标资源",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "18712528",
+      "name": "性别男",
+      "font_class": "xingbienan",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}

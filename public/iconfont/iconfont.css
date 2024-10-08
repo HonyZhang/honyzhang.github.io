@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4703414 */
+  /* Color fonts */
+  src: 
+       url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAIEAAwAAAAABAgAAAG3AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIhgjEgZgADwKgUSBVAE2AiQDDAsKAAQgBYF8ByAbOwPIBoJay3ogl/BeQPGqAIIjksCsmDyp1Pmvl0gKuDzpHToXD+xEVjywAc2wi/IpIjAScGCvb8/ZEG6Nc4EvYSbio/WwjBFR4KObgAC8AD8EUkIFzRT9P601LLRG7OKElueyAyhjE9FBkkhCKcLOpfKK8hIeYv5GLVlLVIh7CACJfA6YmF2gAD8UQvCacMAWCKQ7bVlA2vrmL5OgnRoAF9bzgeZuAKQ+6Rc5O9W6/kGAWP4I3DfeA5be5RsbWLqxw3dCLd+6eaxfLw3utQ8+uK0fOCyN0DDD74nlD1lJGWlqmHt7Tk9MRWVMd05OwVRU9kTnZPuVldF7GrmSWzGfjKur10atYRQboUYJzHr28dnZr/HIgtK19La29LXSUqptbWvppZIqip58Jxf2HI7fVTUa2f9d1BdyPyK7/7TjRdYj5VAZgA3p4Ce8VUMRZcoxH5FGNEBR1oRZyHWODo9slKMQ2hWBHTZf4hV5YEUqwbDGpBZ2wp+xWzZMtummlUEG6Ki/jVFNO52M00czIyQQS3wuZFFORUkuIev6qpg48ozMJNbTzgijdC+aD0x1q6fQRMvB3+YA') format('woff2'),
+       url('iconfont.woff?t=1728362867094') format('woff'),
+       url('iconfont.ttf?t=1728362867094') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xingbienan:before {
+  content: "\e600";
+}
+

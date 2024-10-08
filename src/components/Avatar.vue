@@ -13,8 +13,8 @@ defineProps<AvatarProps>()
 
 <style scoped>
 .avatar {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid #3498db;

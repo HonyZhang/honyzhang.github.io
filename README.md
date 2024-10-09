@@ -1,5 +1,17 @@
-# Vue 3 + TypeScript + Vite
+# HonyZhang 的个人网站
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+欢迎访问我的个人网站！这个网站用于展示我的个人项目、技术博客，并提供了与我联系的方式。
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## 功能介绍
+
+- **项目展示**：展示我开发的所有开源项目，并提供项目的详细介绍和 GitHub 仓库链接。
+- **技术博客**：分享我的技术文章、开发经验和学习笔记。
+- **关于我**：简单介绍我的背景、技能以及职业经历。
+- **联系我**：提供社交媒体和邮件等联系方式，便于联系和交流。
+
+## 技术栈
+
+- **前端框架**：Vue 3
+- **构建工具**：_Vite_
+- **样式**：Sass，遵循 BEM 风格
+- **部署**：vercel

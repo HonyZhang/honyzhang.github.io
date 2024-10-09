@@ -5,18 +5,8 @@
         </div>
         <Card class="left-side__profile-infos">
             <div class="left-side__profile-info">
-                <el-icon :size="20" class="left-side__profile-info-icon">
-                    <LocationInformation/>
-                </el-icon>
-                男
-            </div>
-            <div class="left-side__profile-info">
                 <i class="left-side__profile-info-icon iconfont icon-nianling"></i>
                 29岁
-            </div>
-            <div class="left-side__profile-info">
-                <i class="left-side__profile-info-icon iconfont icon-zhiye"></i>
-                前端开发工程师
             </div>
             <div class="left-side__profile-info">
                 <el-icon :size="20" class="left-side__profile-info-icon">
@@ -36,6 +26,18 @@
                     <div class="left-side__work-experiences-item-content">{{ activity.content }}</div>
                 </el-timeline-item>
             </el-timeline>
+        </Card>
+        <Card class="left-side__work-skills">
+            <div class="left-side__work-skills-title">技能</div>
+            <div class="left-side__work-skills-tags">
+                <el-tooltip
+                        v-for="skillTag in skillTags"
+                        effect="light"
+                        :content="skillTag.name"
+                >
+                    <i :class="`iconfont ${skillTag.icon}`"></i>
+                </el-tooltip>
+            </div>
         </Card>
     </div>
 </template>
@@ -74,6 +76,49 @@ const activities = [
         content: '东北大学毕业',
         timestamp: '2017-07'
     }
+]
+
+const skillTags = [
+    {
+        name: 'HTML5',
+        icon: 'icon-HTML'
+    },
+    {
+        name: 'CSS',
+        icon: 'icon-css'
+    },
+    {
+        name: 'JasvaScript',
+        icon: 'icon-JavaScript'
+    },
+    {
+        name: 'TypeScript',
+        icon: 'icon-typescript'
+    },
+    {
+        name: 'Vue',
+        icon: 'icon-Vue'
+    },
+    {
+        name: 'ElementUI',
+        icon: 'icon-ElementUI'
+    },
+    {
+        name: 'element-plus',
+        icon: 'icon-element-plus'
+    },
+    {
+        name: 'WebPack',
+        icon: 'icon-webpack'
+    },
+    {
+        name: 'Webstorm',
+        icon: 'icon-Webstorm'
+    },
+    {
+        name: 'VsCode',
+        icon: 'icon-vscode'
+    },
 ]
 
 
@@ -134,6 +179,34 @@ defineProps<LeftSideProps>();
     font-size: 20px;
     font-weight: bold;
     color: white;
+  }
+
+  &__work-skills {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    &-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
+
+    &-tags {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      justify-items: center;
+      gap: 0.5rem;
+
+      .iconfont {
+        font-size: 40px;
+        cursor: pointer;
+      }
+    }
   }
 }
 </style>

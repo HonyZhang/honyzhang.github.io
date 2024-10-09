@@ -37,8 +37,8 @@ onMounted(async () => {
 
 <style scoped lang="scss">
 .home {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -49,7 +49,7 @@ onMounted(async () => {
   &__container {
     width: 100%;
     height: 100%;
-    max-width: 1200px;
+    max-width: 1500px;
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
   }

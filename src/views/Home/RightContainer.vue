@@ -8,10 +8,10 @@
             </div>
             <div class="right-container__profile-info">
                 <i class="iconfont icon-miaoshu"></i>
-                一个有点想法的攻城狮
+                一个有点想法的攻城狮，喜欢整点花活
             </div>
         </Card>
-        <div class="right-container__contacts">
+        <section class="right-container__contacts">
             <Card class="right-container__contact" @click="jumpToGithub">
                 <i class="iconfont icon-GitHub"></i>
                 <div class="text">GitHub</div>
@@ -38,9 +38,9 @@
                     </div>
                 </template>
             </el-dialog>
-        </div>
+        </section>
 
-        <div class="right-container__projects-container">
+        <section class="right-container__projects-container">
             <div class="right-container__projects_title">个人项目</div>
             <div ref="projectsContainer" class="right-container__projects" @scroll="handleScroll">
                 <div ref="projectsLeftArrow" class="right-container__projects-arrow left-arrow"
@@ -60,7 +60,23 @@
                     </el-icon>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="right-container__blogs-container">
+            <div class="right-container__blogs_title">技术博客</div>
+            <Card ref="blogsContainer" class="right-container__blogs">
+                <el-scrollbar>
+                    <ul class="right-container__blogs-list">
+                        <li v-for="(blog, index) in blogs" :key="index" class="right-container__blog-item">
+                            <h3>{{ blog.title }}</h3>
+                            <p>{{ blog.summary }}</p>
+                            <span>{{ blog.date }}</span>
+                        </li>
+                    </ul>
+                </el-scrollbar>
+            </Card>
+        </section>
+
     </div>
 </template>
 <script setup lang="ts">
@@ -96,6 +112,53 @@ const projects = [
     {
         name: 'vue-element-admin',
         desc: '基于vue3.0和element-plus的后台管理系统模板'
+    }
+]
+const blogs = [
+    {
+        title: 'Vue3.0+Element-Plus 后台管理系统模板',
+        summary: '基于vue3.0和element-plus的后台管理系统模板',
+        date: '2021-11-25'
+    },
+    {
+        title: 'Vue3.0+Element-Plus 后台管理系统模板',
+        summary: '基于vue3.0和element-plus的后台管理系统模板',
+        date: '2021-11-25'
+    },
+    {
+        title: 'Vue3.0+Element-Plus 后台管理系统模板',
+        summary: '基于vue3.0和element-plus的后台管理系统模板',
+        date: '2021-11-25'
+    },
+    {
+        title: 'Vue3.0+Element-Plus 后台管理系统模板',
+        summary: '基于vue3.0和element-plus的后台管理系统模板',
+        date: '2021-11-25'
+    },
+    {
+        title: 'Vue3.0+Element-Plus 后台管理系统模板',
+        summary: '基于vue3.0和element-plus的后台管理系统模板',
+        date: '2021-11-25'
+    },
+    {
+        title: 'Vue3.0+Element-Plus 后台管理系统模板',
+        summary: '基于vue3.0和element-plus的后台管理系统模板',
+        date: '2021-11-25'
+    },
+    {
+        title: 'Vue3.0+Element-Plus 后台管理系统模板',
+        summary: '基于vue3.0和element-plus的后台管理系统模板',
+        date: '2021-11-25'
+    },
+    {
+        title: 'Vue3.0+Element-Plus 后台管理系统模板',
+        summary: '基于vue3.0和element-plus的后台管理系统模板',
+        date: '2021-11-25'
+    },
+    {
+        title: 'Vue3.0+Element-Plus 后台管理系统模板',
+        summary: '基于vue3.0和element-plus的后台管理系统模板',
+        date: '2021-11-25'
     }
 ]
 const projectsContainer = ref<HTMLElement | null>(null);
@@ -217,6 +280,9 @@ onUnmounted(() => {
   &__profile-name {
     font-size: 4rem;
     color: rgb(238, 238, 238);
+    margin: 0;
+    padding: 0;
+    line-height: 120px;
   }
 
   &__profile-infos {
@@ -230,6 +296,7 @@ onUnmounted(() => {
   &__profile-info {
     display: flex;
     align-items: center;
+    line-height: 30px;
 
     .iconfont {
       margin-right: 1rem;
@@ -372,6 +439,46 @@ onUnmounted(() => {
     font-size: 16px;
     color: rgb(238, 238, 238);
     margin-bottom: 0.5rem;
+  }
+
+  &__blogs-container {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    overflow: hidden;
+  }
+
+  &__blogs_title {
+    font-size: 24px;
+    color: rgb(238, 238, 238);
+  }
+
+  &__blogs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    overflow: hidden;
+
+    :deep(.el-scrollbar__thumb) {
+      background-color: #fff;
+      opacity: 0.5;
+    }
+  }
+
+  &__blogs-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__blog-item {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid rgb(238, 238, 238);
   }
 }
 </style>

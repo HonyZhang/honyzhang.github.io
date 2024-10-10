@@ -49,7 +49,8 @@
                         <DArrowLeft/>
                     </el-icon>
                 </div>
-                <Card v-for="project in projects" :key="project.name" class="right-container__project-item">
+                <Card v-for="project in projects" :key="project.name" class="right-container__project-item"
+                      @click="jumpToProject(project.url)">
                     <div class="right-container__project-item-title">{{ project.name }}</div>
                     <div class="right-container__project-item-info">{{ project.desc }}</div>
                 </Card>
@@ -67,7 +68,8 @@
             <Card ref="blogsContainer" class="right-container__blogs">
                 <el-scrollbar>
                     <ul class="right-container__blogs-list">
-                        <li v-for="(blog, index) in blogs" :key="index" class="right-container__blog-item">
+                        <li v-for="(blog, index) in blogs" :key="index" class="right-container__blog-item"
+                            @click="navigateToBlog">
                             <h3>{{ blog.title }}</h3>
                             <p>{{ blog.summary }}</p>
                             <span>{{ blog.date }}</span>
@@ -85,85 +87,107 @@ import Card from '@/components/Card.vue'
 import {ElMessage} from 'element-plus'
 import {onMounted, onUnmounted, ref} from 'vue'
 import {DArrowLeft, DArrowRight} from '@element-plus/icons-vue'
+import {useRouter} from 'vue-router'
 
 defineOptions({name: 'RightContainer'})
 
 const projects = [
     {
-        name: 'vue-admin-template',
-        desc: '基于vue3.0和element-plus的后台管理系统模板'
+        name: 'Hony UI',
+        desc: '使用vue3.0开发的一套高质量的UI组件库',
+        url: 'https://github.com/HonyZhang/hony-ui'
     },
     {
         name: 'vue-element-admin',
-        desc: '基于vue3.0和element-plus的后台管理系统模板'
+        desc: '基于vue3.0和element-plus的后台管理系统模板',
+        url: 'https://github.com/HonyZhang/vue-element-admin'
     },
     {
         name: 'vue-admin-template',
-        desc: '基于vue3.0和element-plus的后台管理系统模板'
+        desc: '基于vue3.0和element-plus的后台管理系统模板',
+        url: 'https://github.com/HonyZhang/vue-admin-template'
     },
     {
         name: 'vue-element-admin',
-        desc: '基于vue3.0和element-plus的后台管理系统模板'
+        desc: '基于vue3.0和element-plus的后台管理系统模板',
+        url: 'https://github.com/HonyZhang/vue-admin-template'
     },
     {
         name: 'vue-admin-template',
-        desc: '基于vue3.0和element-plus的后台管理系统模板'
+        desc: '基于vue3.0和element-plus的后台管理系统模板',
+        url: 'https://github.com/HonyZhang/vue-admin-template'
     },
     {
         name: 'vue-element-admin',
-        desc: '基于vue3.0和element-plus的后台管理系统模板'
+        desc: '基于vue3.0和element-plus的后台管理系统模板',
+        url: 'https://github.com/HonyZhang/vue-admin-template'
     }
 ]
 const blogs = [
     {
-        title: 'Vue3.0+Element-Plus 后台管理系统模板',
-        summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25'
+        title: 'UI组件库Hony UI结构搭建',
+        summary: '使用vue3.0和vite, 从0到1搭建一个高质量的UI组件库',
+        date: '2024-10-09',
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',
         summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25'
+        date: '2021-11-25',
+        url: 'https://github.com/HonyZhang/vue-admin-template'
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',
         summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25'
+        date: '2021-11-25',
+        url: 'https://github.com/HonyZhang/vue-admin-template'
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',
         summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25'
+        date: '2021-11-25',
+        url: 'https://github.com/HonyZhang/vue-admin-template'
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',
         summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25'
+        date: '2021-11-25',
+        url: 'https://github.com/HonyZhang/vue-admin-template'
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',
         summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25'
+        date: '2021-11-25',
+        url: 'https://github.com/HonyZhang/vue-admin-template'
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',
         summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25'
+        date: '2021-11-25',
+        url: 'https://github.com/HonyZhang/vue-admin-template'
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',
         summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25'
+        date: '2021-11-25',
+        url: 'https://github.com/HonyZhang/vue-admin-template'
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',
         summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25'
+        date: '2021-11-25',
+        url: 'https://github.com/HonyZhang/vue-admin-template'
+    },
+    {
+        title: 'Vue3.0+Element-Plus 后台管理系统模板',
+        summary: '基于vue3.0和element-plus的后台管理系统模板',
+        date: '2021-11-25',
+        url: 'https://github.com/HonyZhang/vue-admin-template'
     }
 ]
 const projectsContainer = ref<HTMLElement | null>(null);
 const projectsLeftArrow = ref<HTMLElement | null>(null);
 const projectsRightArrow = ref<HTMLElement | null>(null);
+const router = useRouter();
 
 const jumpToGithub = () => {
     window.open('https://github.com/HonyZhang')
@@ -185,6 +209,10 @@ const copyEmail = () => {
 
 const showWechat = ref(false)
 
+const jumpToProject = (url: string) => {
+    window.open(url)
+}
+
 // 检查是否需要显示箭头的逻辑
 const updateArrowsVisibility = () => {
     if (projectsContainer.value) {
@@ -201,6 +229,10 @@ const updateArrowsVisibility = () => {
         }
     }
 };
+
+const navigateToBlog = () => {
+    router.push({ name: 'Blogs', params: { componentName: 'CreateUILib' } })
+}
 
 // 处理滚动时箭头的显示和隐藏
 const handleScroll = () => {
@@ -426,6 +458,7 @@ onUnmounted(() => {
     display: flex;
     flex-direction: column;
     margin: 1rem;
+    cursor: pointer;
   }
 
   &__project-item-title {
@@ -479,6 +512,7 @@ onUnmounted(() => {
     margin: 0;
     padding: 0 0 1rem;
     border-bottom: 1px solid rgb(238, 238, 238);
+    cursor: pointer;
   }
 }
 </style>

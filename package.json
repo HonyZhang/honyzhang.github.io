@@ -12,7 +12,6 @@
     "@element-plus/icons-vue": "^2.3.1",
     "element-plus": "^2.8.4",
     "gray-matter": "^4.0.3",
-    "hony-ui": "file:..\\hony-ui\\hony-ui-1.0.0.tgz",
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-prism": "^2.3.0",
     "markdown-it-toc-done-right": "^4.2.0",

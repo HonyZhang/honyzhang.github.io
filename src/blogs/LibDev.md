@@ -144,7 +144,7 @@ import {Button} from 'hony-ui' // 等同于 import { Button } from './lib/index.
 
 我们修改项目的结构，在项目根目录下创建app和lib目录，分别存放调试项目和组件库。结构如下：
 
-```
+```perl
 ├── hony-ui/                  # 项目根目录
 │   ├── app/                  # 调试项目目录
 │   │   ├── src/              

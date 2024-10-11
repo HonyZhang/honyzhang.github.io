@@ -54,7 +54,7 @@ pnpm install
 
 调整项目结构如下：
 
-```
+```perl
 ├── hony-ui/                  # 项目根目录
 │   ├── components/       # 组件目录
 │   │   ├── HonyButton.vue  # 示例组件

@@ -10,11 +10,11 @@ tags:
 
 # 使用 Vue 3 和 Vite 从 0 到 1 搭建组件库
 
-本篇文章将探索如何使用 Vue 3 和 Vite 从 0 到 1 搭建一个组件库。
-
 [[toc]]
 
-## 技术概览
+本篇文章将探索如何使用 Vue 3 和 Vite 从 0 到 1 搭建一个组件库。
+
+## 1. 技术概览
 
 在构建这个组件库的过程中，用到的技术和版本如下：
 
@@ -26,7 +26,7 @@ tags:
 
 ---
 
-## 1. 初始化项目
+## 2. 初始化项目
 
 在终端中执行以下命令：
 
@@ -50,15 +50,15 @@ cd hony-ui
 pnpm install
 ```
 
-## 2 调整项目结构
+## 3. 调整项目结构
 
 调整项目结构如下：
 
 ```bash
 ├── hony-ui/                  # 项目根目录
 │   ├── components/       # 组件目录
-│   │   ├── MyButton.vue  # 示例组件
-│   │   └── MyInput.vue   # 示例组件
+│   │   ├── HonyButton.vue  # 示例组件
+│   │   └── HonyInput.vue   # 示例组件
 │   ├── index.ts          # 组件库入口文件
 │   ├── package.json          # 项目配置文件
 │   ├── pnpm-lock.yaml        # 依赖锁文件
@@ -66,7 +66,7 @@ pnpm install
 │   └── tsconfig.json         # TypeScript 配置文件
 ```
 
-## 3 编写tsconfig.json文件 
+## 4. 编写tsconfig.json文件 
 
 编辑 tsconfig.json 文件，确保路径别名、编译选项和严格性检查符合项目需求。
 
@@ -111,7 +111,7 @@ pnpm install
 }
 ```
 
-## 4 编写vite.config.ts文件
+## 5. 编写vite.config.ts文件
 
 ```typescript
 import {defineConfig} from 'vite';
@@ -144,7 +144,7 @@ export default defineConfig({
 pnpm install @types/node -D
 ```
 
-## 5 package.json文件内容如下：
+## 6. package.json文件内容如下：
 
 ```json
 {
@@ -181,16 +181,16 @@ pnpm install @types/node -D
 
 ```
 
-## 6 编写组件库入口文件
+## 7. 编写组件库入口文件
 
 在组件库根目录下创建 index.ts 文件，内容如下：
 
 ```typescript
-import MyButton from './components/MyButton.vue';
-import MyInput from './components/MyInput.vue';
+import HonyButton from './components/HonyButton.vue';
+import HonyInput from './components/HonyInput.vue';
 import { App } from 'vue';
 
-const components = [MyButton, MyInput];
+const components = [HonyButton, HonyInput];
 
 const install = (app: App) => {
     components.forEach((component) => {
@@ -209,23 +209,24 @@ const HonyUI = {
 export default HonyUI;
 ```
 
-## 7 编写示例组件
+## 8. 编写示例组件
 
-在 components 目录下创建 MyButton.vue 和 MyInput.vue 文件，内容如下：
+在 components 目录下创建 HonyButton.vue 和 HonyInput.vue 文件，内容如下：
 
-MyButton.vue
+HonyButton.vue
+
 ```html
 <template>
-    <button class="my-button">{{ text }}</button>
+    <button class="hony-button">{{ text }}</button>
 </template>
 <script setup lang="ts">
     import { ref } from 'vue'
 
-    defineOptions({name: 'MyButton'})
+    defineOptions({name: 'HonyButton'})
     const text = ref('Click me')
 </script>
 <style scoped>
-    .my-button {
+    .hony-button {
         background-color: #4CAF50;
         border: none;
         color: white;
@@ -240,24 +241,24 @@ MyButton.vue
 </style>
 ```
 
-MyInput.vue
+HonyInput.vue
 ```html
 <template>
     <div>
-        <label for="my-input">{{ label }}</label>
-        <input type="text" id="my-input" v-model="value">
+        <label for="hony-input">{{ label }}</label>
+        <input type="text" id="hony-input" v-model="value">
     </div>
 </template>
 <script setup lang="ts">
     import { ref } from 'vue'
-    defineOptions({name: 'MyInput'})
+    defineOptions({name: 'HonyInput'})
 
-    const label = ref('My Input')
+    const label = ref('Hony Input')
     const value = ref('')
 </script>
 ```
 
-## 8 编译组件库
+## 9. 编译组件库
 
 在终端中执行以下命令：
 
@@ -265,7 +266,7 @@ MyInput.vue
 pnpm build
 ```
 
-## 9 发布组件库
+## 10. 发布组件库
 发布组件库前，需要先在 npm 账户中注册账号，并登录。
 
 ```bash
@@ -280,7 +281,7 @@ npm login
 pnpm publish
 ```
 
-## 10 使用组件库
+## 11. 使用组件库
 
 在项目中使用组件库，需要先安装依赖：
 

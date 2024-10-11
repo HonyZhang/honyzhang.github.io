@@ -69,7 +69,7 @@
                 <el-scrollbar>
                     <ul class="right-container__blogs-list">
                         <li v-for="(blog, index) in blogs" :key="index" class="right-container__blog-item"
-                            @click="navigateToBlog">
+                            @click="navigateToBlog(blog.componentName)">
                             <h3>{{ blog.title }}</h3>
                             <p>{{ blog.summary }}</p>
                             <span>{{ blog.date }}</span>
@@ -127,13 +127,14 @@ const blogs = [
     {
         title: 'UI组件库Hony UI结构搭建',
         summary: '使用vue3.0和vite, 从0到1搭建一个高质量的UI组件库',
-        date: '2024-10-09',
+        date: '2024-10-10',
+        componentName: 'CreateUILib'
     },
     {
-        title: 'Vue3.0+Element-Plus 后台管理系统模板',
-        summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25',
-        url: 'https://github.com/HonyZhang/vue-admin-template'
+        title: 'Vue3组件库全局注册时类型声明',
+        summary: 'Vue3组件库全局注册后，功能正常，但是缺少全局类型声明，导致代码提示不友好，本文介绍如何在全局注册时添加类型声明',
+        date: '2024-10-11',
+        componentName: 'LibGlobalTypeError'
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',
@@ -230,8 +231,8 @@ const updateArrowsVisibility = () => {
     }
 };
 
-const navigateToBlog = () => {
-    router.push({ name: 'Blogs', params: { componentName: 'CreateUILib' } })
+const navigateToBlog = (componentName: string = 'NotFound') => {
+    router.push({name: 'Blogs', params: {componentName}})
 }
 
 // 处理滚动时箭头的显示和隐藏

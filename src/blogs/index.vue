@@ -26,6 +26,7 @@ const backgroundImage = ref('')
 const route = useRoute();
 const componentMap = {
     CreateUILib: () => import('./CreateUILib.md'),
+    LibGlobalTypeError: () => import('./LibGlobalTypeError.md'),
     NotFound: () => import('./NotFound.vue')
 };
 

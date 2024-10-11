@@ -137,10 +137,10 @@ const blogs = [
         componentName: 'LibGlobalTypeError'
     },
     {
-        title: 'Vue3.0+Element-Plus 后台管理系统模板',
-        summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25',
-        url: 'https://github.com/HonyZhang/vue-admin-template'
+        title: 'Vue3组件库本地调试最佳实践',
+        summary: '组件库在开发过程中，需要本地调试，本文介绍如何在本地调试时，使用最佳实践',
+        date: '2024-10-11',
+        componentName: 'LibDev'
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',

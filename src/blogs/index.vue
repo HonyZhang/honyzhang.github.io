@@ -27,6 +27,7 @@ const route = useRoute();
 const componentMap = {
     CreateUILib: () => import('./CreateUILib.md'),
     LibGlobalTypeError: () => import('./LibGlobalTypeError.md'),
+    LibDev: () => import('./LibDev.md'),
     NotFound: () => import('./NotFound.vue')
 };
 

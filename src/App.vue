@@ -5,18 +5,6 @@
 </template>
 
 <script setup lang="ts">
-
-import {onMounted} from 'vue'
-
-onMounted(() => {
-    // 创建 link 元素
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = import.meta.env.VITE_ICONFONT_API_URL;  // 外链地址
-
-    // 将 link 元素添加到 head
-    document.head.appendChild(link);
-})
 </script>
 
 <style>

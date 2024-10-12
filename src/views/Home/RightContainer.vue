@@ -143,10 +143,10 @@ const blogs = [
         componentName: 'LibDev'
     },
     {
-        title: 'Vue3.0+Element-Plus 后台管理系统模板',
-        summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25',
-        url: 'https://github.com/HonyZhang/vue-admin-template'
+        title: 'HONY UI 组件库新增横向滚动组件HonyHorizontalScroll',
+        summary: '新增组件，实现横向滚动效果',
+        date: '2024-10-12',
+        componentName: 'HorizontalScroll'
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',

@@ -28,6 +28,7 @@ const componentMap = {
     CreateUILib: () => import('./CreateUILib.md'),
     LibGlobalTypeError: () => import('./LibGlobalTypeError.md'),
     LibDev: () => import('./LibDev.md'),
+    HorizontalScroll: () => import('./HorizontalScroll.md'),
     NotFound: () => import('./NotFound.vue')
 };
 

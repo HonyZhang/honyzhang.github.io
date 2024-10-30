@@ -151,8 +151,14 @@ const blogs = [
     {
         title: '组件库的按需导入',
         summary: '参考element-plus的按需导入方案，实现组件库的按需导入',
-        date: '2024-10-12',
+        date: '2024-10-30',
         componentName: 'LibImport'
+    },
+    {
+        title: '同时支持全局注册和自动按需导入的解决方案',
+        summary: '组件库同时支持全局注册和自动按需导入的解决方案',
+        date: '2024-10-30',
+        componentName: 'TypeScriptForImport'
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',

@@ -30,6 +30,7 @@ const componentMap = {
     LibDev: () => import('./LibDev.md'),
     HorizontalScroll: () => import('./HorizontalScroll.md'),
     LibImport: () => import('./LibImport.md'),
+    TypeScriptForImport: () => import('./TypeScriptForImport.md'),
     NotFound: () => import('./NotFound.vue')
 };
 

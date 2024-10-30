@@ -17,7 +17,7 @@ tags:
 
 在我的个人网站中，有时需要展示一些宽度超出屏幕的内容，需要横向滚动才能查看完整的内容。比如，我的个人项目：
 
-<img src="/images/blogs/HonyHorizontalScroll-1.png" alt="个人项目示例" width="500">
+<img src="/images/blogs/HonyHorizontalScroll-1.png" alt="个人项目示例" width="100%">
 
 原生的横向滚动条需要拖动才能查看完整的内容，不方便使用。因此，我开发了 HonyHorizontalScroll 组件，可以实现横向滚动，并且可以设置滚动条的颜色、宽度、高度等样式。
 
@@ -88,7 +88,7 @@ hony-ui/lib/components/HonyHorizontalScroll.vue
 
 上述代码中，我们发现 `container.scrollLeft += event.deltaY;` 这行代码有如下提示：
 
-<img src="/images/blogs/HonyHorizontalScroll-2.png" alt="个人项目示例" width="500">
+<img src="/images/blogs/HonyHorizontalScroll-2.png" alt="个人项目示例" width="100%">
 
 因为`event.deltaY`是鼠标纵向滚动的距离，如果直接用于横向滚动，会显得比较突兀（尤其针对容器长宽比较大的情况）。
 

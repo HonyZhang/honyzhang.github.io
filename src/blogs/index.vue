@@ -29,6 +29,7 @@ const componentMap = {
     LibGlobalTypeError: () => import('./LibGlobalTypeError.md'),
     LibDev: () => import('./LibDev.md'),
     HorizontalScroll: () => import('./HorizontalScroll.md'),
+    LibImport: () => import('./LibImport.md'),
     NotFound: () => import('./NotFound.vue')
 };
 

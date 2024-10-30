@@ -70,7 +70,7 @@ const activities = [
     },
     {
         content: '招银网络科技有限公司',
-        timestamp: '2018-03'
+        timestamp: '2018-06'
     },
     {
         content: '东北大学毕业',

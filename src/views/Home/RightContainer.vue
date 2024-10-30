@@ -149,10 +149,10 @@ const blogs = [
         componentName: 'HorizontalScroll'
     },
     {
-        title: 'Vue3.0+Element-Plus 后台管理系统模板',
-        summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25',
-        url: 'https://github.com/HonyZhang/vue-admin-template'
+        title: '组件库的按需导入',
+        summary: '参考element-plus的按需导入方案，实现组件库的按需导入',
+        date: '2024-10-12',
+        componentName: 'LibImport'
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',

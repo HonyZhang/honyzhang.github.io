@@ -4,6 +4,7 @@
             <left-side :avatarSrc="avatarSrc"></left-side>
             <right-container></right-container>
         </div>
+
     </div>
 </template>
 
@@ -15,13 +16,13 @@ import RightContainer from '@/views/Home/RightContainer.vue'
 
 interface HomeProps {
     avatarSrc: string;
-    title: string;
-    description: string;
-    email: string;
-    githubLink: string;
-    linkedinLink: string;
-    projects: { id: number, title: string, description: string }[];
-    blogs: { id: number, title: string, link: string }[];
+    title?: string;
+    description?: string;
+    email?: string;
+    githubLink?: string;
+    linkedinLink?: string;
+    projects?: { id: number, title: string, description: string }[];
+    blogs?: { id: number, title: string, link: string }[];
 }
 
 defineProps<HomeProps>();
@@ -36,6 +37,7 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="scss">
+
 .home {
   width: 100%;
   height: 100%;
@@ -49,9 +51,15 @@ onMounted(async () => {
   &__container {
     width: 100%;
     height: 100%;
-    max-width: 1500px;
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
+
+    @include responsive-width((
+            small: 100%,
+            medium: 100%,
+            large: 100%,
+            xlarge: 80%,
+    ))
   }
 }
 </style>

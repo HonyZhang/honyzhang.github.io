@@ -1,0 +1,16 @@
+// 定义断点
+$breakpoints: (
+        small: 480px,
+        medium: 768px,
+        large: 1024px,
+        xlarge: 1200px
+);
+
+// Mixin 用于设置响应式宽度
+@mixin responsive-width($widths) {
+  @each $breakpoint, $width in $widths {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      width: $width;
+    }
+  }
+}

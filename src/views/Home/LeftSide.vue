@@ -1,5 +1,5 @@
 <template>
-    <div class="left-side">
+    <el-scrollbar ref="leftSideRef" class="left-side">
         <div class="left-side__profile-avatar">
             <Avatar :src="avatarSrc"></Avatar>
         </div>
@@ -39,14 +39,15 @@
                 </el-tooltip>
             </div>
         </Card>
-    </div>
+    </el-scrollbar>
 </template>
 <script setup lang="ts">
 
-import {ElIcon} from 'element-plus'
+import {ElIcon, ElScrollbar} from 'element-plus'
 import Avatar from '@/components/Avatar.vue'
 import Card from '@/components/Card.vue'
 import {LocationInformation} from '@element-plus/icons-vue'
+import {ref} from 'vue'
 
 defineOptions({name: 'LeftSide'})
 
@@ -118,24 +119,28 @@ const skillTags = [
     {
         name: 'VsCode',
         icon: 'icon-vscode'
-    },
+    }
 ]
 
+const leftSideRef = ref<typeof ElScrollbar | null>(null);
 
 defineProps<LeftSideProps>();
+
 </script>
 <style lang="scss" scoped>
 .left-side {
   display: flex;
-  flex: 0 0 300px;
+  flex: 0 0 260px;
   flex-direction: column;
   align-items: center;
   height: 100%;
   padding: 2rem 1rem;
 
   &__profile-avatar {
-    width: 230px;
-    height: 230px;
+    margin: 0 auto;
+    width: 160px;
+    height: 160px;
+    transition: all 0.3s ease-in-out, height 0.3s ease-in-out; // 添加平滑过渡效果
   }
 
   &__profile-infos {
@@ -148,8 +153,11 @@ defineProps<LeftSideProps>();
   &__profile-info {
     display: flex;
     align-items: center;
-    font-size: 18px;
-    margin-bottom: 1rem;
+    font-size: 16px;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
   }
 
   &__profile-info-icon {
@@ -176,7 +184,7 @@ defineProps<LeftSideProps>();
   }
 
   &__work-experiences-item-content {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     color: white;
   }
@@ -188,7 +196,7 @@ defineProps<LeftSideProps>();
     flex-direction: column;
 
     &-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
       color: white;
     }
@@ -198,12 +206,12 @@ defineProps<LeftSideProps>();
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       justify-items: center;
       gap: 0.5rem;
 
       .iconfont {
-        font-size: 40px;
+        font-size: 30px;
         cursor: pointer;
       }
     }

@@ -1,85 +1,82 @@
 <template>
-    <div class="right-container">
-        <h1 class="right-container__profile-name">张翔</h1>
-        <Card class="right-container__profile-infos">
-            <div class="right-container__profile-info">
-                <i class="iconfont icon-xingbienan1"></i>
-                前端开发工程师
-            </div>
-            <div class="right-container__profile-info">
-                <i class="iconfont icon-miaoshu"></i>
-                一个有点想法的攻城狮，喜欢整点花活
-            </div>
-        </Card>
-        <section class="right-container__contacts">
-            <Card class="right-container__contact" @click="jumpToGithub">
-                <i class="iconfont icon-GitHub"></i>
-                <div class="text">GitHub</div>
-            </Card>
-            <Card class="right-container__contact" @click="copyEmail">
-                <i class="iconfont icon-email"></i>
-                <div class="text">邮箱</div>
-            </Card>
-            <Card class="right-container__contact" @click="showWechat=true">
-                <i class="iconfont icon-weixin"></i>
-                <div class="text">微信</div>
-            </Card>
-            <el-dialog
-                    v-model="showWechat"
-                    width="500"
-                    class="wechat-dialog"
-            >
-                <img class="wechat-img" src="/weixin.jpg"/>
-                <template #footer>
-                    <div class="dialog-footer">
-                        <el-button type="primary" @click="showWechat = false">
-                            OK
-                        </el-button>
+        <div class="right-container">
+            <section class="right-container__about">
+                <h1 class="right-container__profile-name">张翔</h1>
+                <Card class="right-container__profile-infos">
+                    <div class="right-container__profile-info">
+                        <i class="iconfont icon-xingbienan1"></i>
+                        一个有点想法的前端攻城狮
                     </div>
-                </template>
-            </el-dialog>
-        </section>
-
-        <section class="right-container__projects-container">
-            <div class="right-container__projects_title">个人项目</div>
-            <div ref="projectsContainer" class="right-container__projects" @scroll="handleScroll">
-                <div ref="projectsLeftArrow" class="right-container__projects-arrow left-arrow"
-                     @click="scrollProjectsLeft">
-                    <el-icon size="48px" color="white">
-                        <DArrowLeft/>
-                    </el-icon>
-                </div>
-                <Card v-for="project in projects" :key="project.name" class="right-container__project-item"
-                      @click="jumpToProject(project.url)">
-                    <div class="right-container__project-item-title">{{ project.name }}</div>
-                    <div class="right-container__project-item-info">{{ project.desc }}</div>
                 </Card>
-                <div ref="projectsRightArrow" class="right-container__projects-arrow right-arrow"
-                     @click="scrollProjectsRight">
-                    <el-icon size="48px" color="white">
-                        <DArrowRight/>
-                    </el-icon>
+            </section>
+            <section class="right-container__contacts">
+                <Card class="right-container__contact" @click="jumpToGithub">
+                    <i class="iconfont icon-GitHub"></i>
+                    <div class="text">GitHub</div>
+                </Card>
+                <Card class="right-container__contact" @click="copyEmail">
+                    <i class="iconfont icon-email"></i>
+                    <div class="text">邮箱</div>
+                </Card>
+                <Card class="right-container__contact" @click="showWechat=true">
+                    <i class="iconfont icon-weixin"></i>
+                    <div class="text">微信</div>
+                </Card>
+                <el-dialog
+                        v-model="showWechat"
+                        width="500"
+                        class="wechat-dialog"
+                >
+                    <img class="wechat-img" src="/weixin.jpg"/>
+                    <template #footer>
+                        <div class="dialog-footer">
+                            <el-button type="primary" @click="showWechat = false">
+                                OK
+                            </el-button>
+                        </div>
+                    </template>
+                </el-dialog>
+            </section>
+
+            <section class="right-container__projects-container">
+                <div class="right-container__projects_title">个人项目</div>
+                <div ref="projectsContainer" class="right-container__projects" @scroll="handleScroll">
+                    <div ref="projectsLeftArrow" class="right-container__projects-arrow left-arrow"
+                         @click="scrollProjectsLeft">
+                        <el-icon size="48px" color="white">
+                            <DArrowLeft/>
+                        </el-icon>
+                    </div>
+                    <Card v-for="project in projects" :key="project.name" class="right-container__project-item"
+                          @click="jumpToProject(project.url)">
+                        <div class="right-container__project-item-title">{{ project.name }}</div>
+                        <div class="right-container__project-item-info">{{ project.desc }}</div>
+                    </Card>
+                    <div ref="projectsRightArrow" class="right-container__projects-arrow right-arrow"
+                         @click="scrollProjectsRight">
+                        <el-icon size="48px" color="white">
+                            <DArrowRight/>
+                        </el-icon>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="right-container__blogs-container">
-            <div class="right-container__blogs_title">技术博客</div>
-            <Card ref="blogsContainer" class="right-container__blogs">
-                <el-scrollbar>
-                    <ul class="right-container__blogs-list">
-                        <li v-for="(blog, index) in blogs" :key="index" class="right-container__blog-item"
-                            @click="navigateToBlog(blog.componentName)">
-                            <h3>{{ blog.title }}</h3>
-                            <p>{{ blog.summary }}</p>
-                            <span>{{ blog.date }}</span>
-                        </li>
-                    </ul>
-                </el-scrollbar>
-            </Card>
-        </section>
-
-    </div>
+            <section class="right-container__blogs-container">
+                <div class="right-container__blogs_title">技术博客</div>
+                <Card ref="blogsContainer" class="right-container__blogs">
+                    <el-scrollbar>
+                        <ul class="right-container__blogs-list">
+                            <li v-for="(blog, index) in blogs" :key="index" class="right-container__blog-item"
+                                @click="navigateToBlog(blog.componentName)">
+                                <h3 class="right-container__blog-item-title">{{ blog.title }}</h3>
+                                <p class="right-container__blog-item-summary">{{ blog.summary }}</p>
+                                <span class="right-container__blog-item-date">{{ blog.date }}</span>
+                            </li>
+                        </ul>
+                    </el-scrollbar>
+                </Card>
+            </section>
+        </div>
 </template>
 <script setup lang="ts">
 
@@ -316,37 +313,45 @@ onUnmounted(() => {
   flex: 1;
   margin: 1rem;
 
+  &__about {
+    display: flex;
+    align-items: flex-end;
+  }
+
   &__profile-name {
-    font-size: 4rem;
+    font-size: 3rem;
     color: rgb(238, 238, 238);
     margin: 0;
     padding: 0;
-    line-height: 120px;
+    line-height: 80px;
   }
 
   &__profile-infos {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    font-size: 18px;
+    font-size: 16px;
     color: rgb(238, 238, 238);
+    height: 40px;
+    padding: 0 1rem;
+    margin: 0 0 1rem 1rem;
   }
 
   &__profile-info {
     display: flex;
     align-items: center;
     line-height: 30px;
+    height: 40px;
 
     .iconfont {
-      margin-right: 1rem;
-      font-size: 24px;
+      margin-right: 0.5rem;
+      font-size: 20px;
       color: rgb(238, 238, 238);
     }
   }
 
   &__contacts {
     display: flex;
-    margin-top: 1rem;
 
     :deep(.wechat-dialog .el-dialog__body) {
       display: flex;
@@ -354,7 +359,7 @@ onUnmounted(() => {
       align-items: center;
 
       img {
-        width: 400px;
+        width: 200px;
       }
     }
   }
@@ -363,11 +368,12 @@ onUnmounted(() => {
     display: flex;
     align-items: center;
     margin-right: 1rem;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
+    padding: 0.5rem;
 
     .iconfont {
-      font-size: 28px;
+      font-size: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -392,7 +398,7 @@ onUnmounted(() => {
   &__projects-container {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
+    margin-top: 1rem;
     position: relative;
 
     :deep(.el-scrollbar__thumb) {
@@ -401,7 +407,7 @@ onUnmounted(() => {
   }
 
   &__projects_title {
-    font-size: 24px;
+    font-size: 20px;
     color: rgb(238, 238, 238);
   }
 
@@ -422,7 +428,7 @@ onUnmounted(() => {
     position: absolute;
     top: calc(50% + 1rem);
     transform: translateY(-50%);
-    font-size: 2rem;
+    font-size: 1rem;
     color: #333;
     cursor: pointer;
     z-index: 10;
@@ -460,23 +466,23 @@ onUnmounted(() => {
   }
 
   &__project-item {
-    height: 150px;
+    height: 100px;
     flex: 0 0 240px;
     display: flex;
     flex-direction: column;
-    margin: 1rem;
+    margin: 0.5rem;
     cursor: pointer;
   }
 
   &__project-item-title {
-    font-size: 20px;
+    font-size: 18px;
     color: rgb(238, 238, 238);
     margin-bottom: 0.5rem;
   }
 
   &__project-item-info {
     flex: 0;
-    font-size: 16px;
+    font-size: 14px;
     color: rgb(238, 238, 238);
     margin-bottom: 0.5rem;
   }
@@ -484,19 +490,19 @@ onUnmounted(() => {
   &__blogs-container {
     display: flex;
     flex-direction: column;
-    margin: 2rem 0;
+    margin: 1rem 0;
     overflow: hidden;
   }
 
   &__blogs_title {
-    font-size: 24px;
+    font-size: 20px;
     color: rgb(238, 238, 238);
   }
 
   &__blogs {
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     overflow: hidden;
 
     :deep(.el-scrollbar__thumb) {
@@ -517,9 +523,21 @@ onUnmounted(() => {
     display: flex;
     flex-direction: column;
     margin: 0;
-    padding: 0 0 1rem;
+    padding: 0 0 0.5rem;
     border-bottom: 1px solid rgb(238, 238, 238);
     cursor: pointer;
+
+    &-title {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+
+    &-summary {
+      margin: 0 0 4px 0;
+      font-size: 14px;
+    }
+
+
   }
 }
 </style>

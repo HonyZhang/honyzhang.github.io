@@ -26,7 +26,7 @@ export default defineConfig({
                 markdownItAnchor,
                 [markdownItTocDoneRight, {level: [2, 3], listType: 'ul'}]
             ],
-            wrapperClasses: 'markdown-body',
+            wrapperClasses: 'markdown-body'
         }),
         vueDevTools()
     ],
@@ -41,6 +41,13 @@ export default defineConfig({
                 target: 'https://www.bing.com',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/bingApi/, '')
+            }
+        }
+    },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@use '@/styles/responsive-width.scss' as *;`
             }
         }
     }

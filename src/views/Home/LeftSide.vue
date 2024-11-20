@@ -138,9 +138,13 @@ defineProps<LeftSideProps>();
 
   &__profile-avatar {
     margin: 0 auto;
-    width: 160px;
-    height: 160px;
-    transition: all 0.3s ease-in-out, height 0.3s ease-in-out; // 添加平滑过渡效果
+
+    @include responsive-width((
+            small: 120px,
+            medium: 160px,
+            large: 200px,
+            xlarge: 200px
+    ))
   }
 
   &__profile-infos {

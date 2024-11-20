@@ -1,82 +1,82 @@
 <template>
-        <div class="right-container">
-            <section class="right-container__about">
-                <h1 class="right-container__profile-name">张翔</h1>
-                <Card class="right-container__profile-infos">
-                    <div class="right-container__profile-info">
-                        <i class="iconfont icon-xingbienan1"></i>
-                        一个有点想法的前端攻城狮
-                    </div>
-                </Card>
-            </section>
-            <section class="right-container__contacts">
-                <Card class="right-container__contact" @click="jumpToGithub">
-                    <i class="iconfont icon-GitHub"></i>
-                    <div class="text">GitHub</div>
-                </Card>
-                <Card class="right-container__contact" @click="copyEmail">
-                    <i class="iconfont icon-email"></i>
-                    <div class="text">邮箱</div>
-                </Card>
-                <Card class="right-container__contact" @click="showWechat=true">
-                    <i class="iconfont icon-weixin"></i>
-                    <div class="text">微信</div>
-                </Card>
-                <el-dialog
-                        v-model="showWechat"
-                        width="500"
-                        class="wechat-dialog"
-                >
-                    <img class="wechat-img" src="/weixin.jpg"/>
-                    <template #footer>
-                        <div class="dialog-footer">
-                            <el-button type="primary" @click="showWechat = false">
-                                OK
-                            </el-button>
-                        </div>
-                    </template>
-                </el-dialog>
-            </section>
-
-            <section class="right-container__projects-container">
-                <div class="right-container__projects_title">个人项目</div>
-                <div ref="projectsContainer" class="right-container__projects" @scroll="handleScroll">
-                    <div ref="projectsLeftArrow" class="right-container__projects-arrow left-arrow"
-                         @click="scrollProjectsLeft">
-                        <el-icon size="48px" color="white">
-                            <DArrowLeft/>
-                        </el-icon>
-                    </div>
-                    <Card v-for="project in projects" :key="project.name" class="right-container__project-item"
-                          @click="jumpToProject(project.url)">
-                        <div class="right-container__project-item-title">{{ project.name }}</div>
-                        <div class="right-container__project-item-info">{{ project.desc }}</div>
-                    </Card>
-                    <div ref="projectsRightArrow" class="right-container__projects-arrow right-arrow"
-                         @click="scrollProjectsRight">
-                        <el-icon size="48px" color="white">
-                            <DArrowRight/>
-                        </el-icon>
-                    </div>
+    <div class="right-container">
+        <section class="right-container__about">
+            <h1 class="right-container__profile-name">张翔</h1>
+            <Card class="right-container__profile-infos">
+                <div class="right-container__profile-info">
+                    <i class="iconfont icon-xingbienan1"></i>
+                    一个有点想法的前端攻城狮
                 </div>
-            </section>
+            </Card>
+        </section>
+        <section class="right-container__contacts">
+            <Card class="right-container__contact" @click="jumpToGithub">
+                <i class="iconfont icon-GitHub"></i>
+                <div class="text">GitHub</div>
+            </Card>
+            <Card class="right-container__contact" @click="copyEmail">
+                <i class="iconfont icon-email"></i>
+                <div class="text">邮箱</div>
+            </Card>
+            <Card class="right-container__contact" @click="showWechat=true">
+                <i class="iconfont icon-weixin"></i>
+                <div class="text">微信</div>
+            </Card>
+            <el-dialog
+                    v-model="showWechat"
+                    width="500"
+                    class="wechat-dialog"
+            >
+                <img class="wechat-img" src="/weixin.jpg"/>
+                <template #footer>
+                    <div class="dialog-footer">
+                        <el-button type="primary" @click="showWechat = false">
+                            OK
+                        </el-button>
+                    </div>
+                </template>
+            </el-dialog>
+        </section>
 
-            <section class="right-container__blogs-container">
-                <div class="right-container__blogs_title">技术博客</div>
-                <Card ref="blogsContainer" class="right-container__blogs">
-                    <el-scrollbar>
-                        <ul class="right-container__blogs-list">
-                            <li v-for="(blog, index) in blogs" :key="index" class="right-container__blog-item"
-                                @click="navigateToBlog(blog.componentName)">
-                                <h3 class="right-container__blog-item-title">{{ blog.title }}</h3>
-                                <p class="right-container__blog-item-summary">{{ blog.summary }}</p>
-                                <span class="right-container__blog-item-date">{{ blog.date }}</span>
-                            </li>
-                        </ul>
-                    </el-scrollbar>
+        <section class="right-container__projects-container">
+            <div class="right-container__projects_title">个人项目</div>
+            <div ref="projectsContainer" class="right-container__projects" @scroll="handleScroll">
+                <div ref="projectsLeftArrow" class="right-container__projects-arrow left-arrow"
+                     @click="scrollProjectsLeft">
+                    <el-icon size="48px" color="white">
+                        <DArrowLeft/>
+                    </el-icon>
+                </div>
+                <Card v-for="project in projects" :key="project.name" class="right-container__project-item"
+                      @click="jumpToProject(project.url)">
+                    <div class="right-container__project-item-title">{{ project.name }}</div>
+                    <div class="right-container__project-item-info">{{ project.desc }}</div>
                 </Card>
-            </section>
-        </div>
+                <div ref="projectsRightArrow" class="right-container__projects-arrow right-arrow"
+                     @click="scrollProjectsRight">
+                    <el-icon size="48px" color="white">
+                        <DArrowRight/>
+                    </el-icon>
+                </div>
+            </div>
+        </section>
+
+        <section class="right-container__blogs-container">
+            <div class="right-container__blogs_title">技术博客</div>
+            <Card ref="blogsContainer" class="right-container__blogs">
+                <el-scrollbar>
+                    <ul class="right-container__blogs-list">
+                        <li v-for="(blog, index) in blogs" :key="index" class="right-container__blog-item"
+                            @click="navigateToBlog(blog.componentName)">
+                            <h3 class="right-container__blog-item-title">{{ blog.title }}</h3>
+                            <p class="right-container__blog-item-summary">{{ blog.summary }}</p>
+                            <span class="right-container__blog-item-date">{{ blog.date }}</span>
+                        </li>
+                    </ul>
+                </el-scrollbar>
+            </Card>
+        </section>
+    </div>
 </template>
 <script setup lang="ts">
 
@@ -524,8 +524,11 @@ onUnmounted(() => {
     flex-direction: column;
     margin: 0;
     padding: 0 0 0.5rem;
-    border-bottom: 1px solid rgb(238, 238, 238);
     cursor: pointer;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgb(238, 238, 238);
+    }
 
     &-title {
       margin: 8px 0;

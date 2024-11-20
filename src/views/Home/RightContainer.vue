@@ -158,10 +158,10 @@ const blogs = [
         componentName: 'TypeScriptForImport'
     },
     {
-        title: 'Vue3.0+Element-Plus 后台管理系统模板',
-        summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25',
-        url: 'https://github.com/HonyZhang/vue-admin-template'
+        title: '自定义打包',
+        summary: '使用gulp对组件库进行自定义打包，实现更加丰富的功能',
+        date: '2024-11-20',
+        componentName: 'GulpBuild'
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',

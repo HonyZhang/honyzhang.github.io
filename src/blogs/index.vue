@@ -31,6 +31,7 @@ const componentMap = {
     HorizontalScroll: () => import('./HorizontalScroll.md'),
     LibImport: () => import('./LibImport.md'),
     TypeScriptForImport: () => import('./TypeScriptForImport.md'),
+    GulpBuild: () => import('./GulpBuild.md'),
     NotFound: () => import('./NotFound.vue')
 };
 

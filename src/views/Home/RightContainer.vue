@@ -164,10 +164,10 @@ const blogs = [
         componentName: 'GulpBuild'
     },
     {
-        title: 'Vue3.0+Element-Plus 后台管理系统模板',
-        summary: '基于vue3.0和element-plus的后台管理系统模板',
-        date: '2021-11-25',
-        url: 'https://github.com/HonyZhang/vue-admin-template'
+        title: '组件库的样式导入',
+        summary: '实现组件库样式的按需加载，自动导入，动态切换主题，自定义主题等功能',
+        date: '2021-11-29',
+        componentName: 'StyleImport'
     },
     {
         title: 'Vue3.0+Element-Plus 后台管理系统模板',

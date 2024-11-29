@@ -32,6 +32,7 @@ const componentMap = {
     LibImport: () => import('./LibImport.md'),
     TypeScriptForImport: () => import('./TypeScriptForImport.md'),
     GulpBuild: () => import('./GulpBuild.md'),
+    StyleImport: () => import('./StyleImport.md'),
     NotFound: () => import('./NotFound.vue')
 };
 
